@@ -15,7 +15,7 @@ gsap.registerPlugin(useGSAP);
 
 const App = () => {
   return (
-    <div className='bg-slate-950 h-auto w-full overflow-hidden'>
+    <div className='bg-slate-900 h-auto w-full overflow-hidden'>
       <Navbar />
       
       <Home />
