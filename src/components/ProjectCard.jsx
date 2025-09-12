@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import hotel from "../assets/hotel.jpeg"
 import ecom from "../assets/ecom.png"
 
 const ProjectCard = () => {
+  const [showScrollButtons, setShowScrollButtons] = useState(false);
   const [projects] = useState([
     {
       id: 1,
@@ -38,19 +40,38 @@ const ProjectCard = () => {
     }
   ]);
 
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setShowScrollButtons(window.innerWidth < 768);
+    };
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   return (
-    <div id='Projects' className='scroll-mt-24 px-2 py-12 md:px-8 md:py-20'>
+    <div id='Projects' className='scroll-mt-24 px-2 py-8 md:px-8 md:py-20'>
       <div className='text-white max-w-6xl mx-auto'>
-        <h1 className='text-2xl md:text-4xl font-bold text-teal-400 text-center md:text-left mb-8'>
+        <h1 className='text-2xl md:text-4xl font-bold text-teal-400 text-center md:text-left mb-6 md:mb-8'>
           PROJECTS
         </h1>
+
         <div className="relative">
-          {/* Gradient fade on left */}
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent z-20 rounded-l-2xl" />
-          {/* Gradient fade on right */}
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-slate-950 via-slate-950/80 to-transparent z-20 rounded-r-2xl" />
+          {/* Enhanced gradient fades */}
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-slate-950  to-transparent z-10" />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-slate-950  to-transparent z-10" />
+
+          {/* Mobile scroll indicators */}
+          {showScrollButtons && (
+            <div className="absolute -bottom-6 left-0 right-0 flex justify-center items-center gap-2 mt-4 text-white/70 z-30">
+              <IoIosArrowBack className="animate-pulse" />
+              <span className="text-sm">Scroll</span>
+              <IoIosArrowForward className="animate-pulse" />
+            </div>
+          )}
+
           <div
-            className="flex gap-6 md:gap-10 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory"
+            className="flex gap-4 md:gap-10 overflow-x-auto pb-8 hide-scrollbar snap-x snap-mandatory"
             style={{
               scrollSnapType: "x mandatory",
               WebkitOverflowScrolling: "touch"
@@ -59,28 +80,32 @@ const ProjectCard = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="min-w-[300px] max-w-xs md:min-w-[350px] md:max-w-sm snap-center group rounded-2xl overflow-hidden bg-slate-800/60 ring-1 ring-white/10 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0"
+                className="min-w-[250px] max-w-[280px] md:min-w-[350px] md:max-w-sm snap-center group 
+                         rounded-xl overflow-hidden bg-slate-800/60 ring-1 ring-white/10 
+                         shadow-lg hover:shadow-2xl transition-all duration-300 
+                         hover:-translate-y-1 flex-shrink-0"
               >
-                <div className='w-full h-40 md:h-52 overflow-hidden'>
+                <div className='w-full h-32 md:h-52 overflow-hidden'>
                   <img
                     className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500'
                     src={project.image}
                     alt={`${project.title} preview`}
                   />
                 </div>
-                <div className='p-4 md:p-5'>
-                  <h2 className='text-xl md:text-2xl font-bold text-white text-center'>
+                <div className='p-3 md:p-5'>
+                  <h2 className='text-lg md:text-2xl font-bold text-white text-center'>
                     {project.title}
                   </h2>
-                  <p className='text-slate-200 text-sm md:text-base mt-2 text-center'>
+                  <p className='text-xs md:text-base mt-2 text-center text-slate-300 line-clamp-2 md:line-clamp-none'>
                     {project.description}
                   </p>
-                  <div className='mt-4 flex gap-3'>
+                  <div className='mt-3 md:mt-4 flex gap-2 md:gap-3'>
                     <a
                       href={project.demoUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className='w-1/2 text-center text-white text-sm md:text-base font-semibold rounded-full py-2 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:opacity-90 active:scale-95 transition'
+                      className='w-1/2 text-center text-white text-xs md:text-base font-semibold rounded-full py-1.5 md:py-2 
+                               bg-gradient-to-r from-cyan-400 to-emerald-400 hover:opacity-90 active:scale-95 transition'
                     >
                       DEMO
                     </a>
@@ -88,7 +113,8 @@ const ProjectCard = () => {
                       href={project.sourceCodeUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className='w-1/2 text-center text-white text-sm md:text-base font-semibold rounded-full py-2 border border-cyan-400/70 hover:bg-cyan-400/10 active:scale-95 transition'
+                      className='w-1/2 text-center text-white text-xs md:text-base font-semibold rounded-full py-1.5 md:py-2 
+                               border border-cyan-400/70 hover:bg-cyan-400/10 active:scale-95 transition'
                     >
                       Source Code
                     </a>
@@ -99,10 +125,12 @@ const ProjectCard = () => {
           </div>
         </div>
       </div>
-      {/* Custom scrollbar hide */}
+
+      {/* Existing scrollbar styles */}
       <style>{`
         .hide-scrollbar {
           scrollbar-width: none;
+          -ms-overflow-style: none;
         }
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
