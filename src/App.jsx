@@ -2,26 +2,28 @@ import React from 'react'
 import {Link, Route, Routes,} from 'react-router-dom'
 import Navbar from "./components/Navbar"
 import Home from "./components/Home"
-import About from './components/About'
+const About = React.lazy(() => import('./components/About'));
 import Skills from './components/Skills'
-import Project from './components/project'
 
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Footer from './components/Footer'
+import Contact from './components/Contact';
+import ProjectCard from './components/ProjectCard';
 
 gsap.registerPlugin(useGSAP);
 
 
 const App = () => {
   return (
-    <div className='bg-slate-900 h-auto w-full overflow-hidden'>
+    <div className='bg-black h-auto w-full overflow-hidden'>
       <Navbar />
       
       <Home />
       <About />
       <Skills />
-      <Project />
+      <ProjectCard />
+      <Contact />
       <Footer />
 
       {/* <Routes>
