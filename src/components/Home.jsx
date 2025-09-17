@@ -41,8 +41,8 @@ const Home = () => {
   });
 
   return (
-    <div id='Home' className='bg-black text-white flex flex-col md:flex-row w-full justify-center md:justify-between pt-[20vh] gap-12 min-h-screen px-6 md:px-20'>
-      <div className='w-full md:w-2/4 text-center md:text-left space-y-6'>
+    <div id='Home' className='bg-black text-white flex flex-col md:flex-row w-full justify-center md:justify-between md:pt-[20vh] md:gap-12 gap-6 min-h-screen px-6 md:px-20'>
+      <div className='w-full md:w-2/4 text-center md:text-left md:space-y-6'>
         <h1 id='name1' className='text-3xl sm:text-4xl leading-tight md:text-6xl font-bold'>
           Hello, I am <br />
           <span
@@ -55,22 +55,22 @@ const Home = () => {
         </h1>
         <p
           id='desc'
-          className='text-base sm:text-xl md:text-2xl max-w-2xl text-slate-300 mx-auto md:mx-0 leading-relaxed'
+          className='text-base sm:text-xl md:text-xl max-w-2xl text-slate-300 mx-auto md:mx-0 leading-4 md:leading-relaxed'
         >
          MERN Stack Developer crafting seamless web experiences. I specialize in building full-stack applications with MERN. With 2 years of hands-on experience in React and Node.js , I focus on turning complex problems into elegant, user-friendly solutions.
         </p>
-        <div className='flex gap-5'>
+        <div className='flex gap-5 pl-6'>
           <a href="https://github.com/Shoeb-codee" target="_blank" rel="noreferrer" 
-             className='w-[18vw] text-center text-white text-sm md:text-xl font-semibold rounded-full py-2.5 bg-gradient-to-r from-blue-500 to-cyan-400 hover:opacity-90 active:scale-95 transition shadow-lg shadow-blue-500/20'>
+             className='w-[32vw] md:w-[18vw] text-center text-white text-lg md:text-xl font-semibold rounded-full py-3 bg-gradient-to-r from-blue-500 to-cyan-400 hover:opacity-90 active:scale-95 transition shadow-lg shadow-blue-500/20'>
             Github
           </a>
           <a href="mailto:shoebahmad698@gmail.com" target="_blank" rel="noreferrer"
-             className='w-[18vw] text-center text-white text-sm md:text-xl font-semibold rounded-full py-2.5 bg-gradient-to-r from-cyan-400 to-teal-400 hover:opacity-90 active:scale-95 transition shadow-lg shadow-cyan-500/20'>
+             className='w-[32vw] md:w-[18vw] text-center text-white text-lg md:text-xl font-semibold rounded-full py-3 bg-gradient-to-r from-cyan-400 to-teal-400 hover:opacity-90 active:scale-95 transition shadow-lg shadow-cyan-500/20'>
             Contact Me
           </a>
         </div>
       </div>
-      <div id='img' className='relative mt-3 mr-10 md:mt-0'>
+      <div id='img' className='relative  md:mr-10 mr-28 md:mt-0'>
         <div id='img-container' className='relative z-10'>
           {/* Enhanced gradient border container */}
           <div className='rounded-full '>
@@ -88,10 +88,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* Enhanced glow effects */}
-        {/* <div className='absolute inset-0 blur-3xl opacity-20 bg-gradient-to-tr from-cyan-400 via-teal-400 to-emerald-400 rounded-full animate-pulse'></div> */}
-        {/* <div className='absolute -inset-4 blur-2xl opacity-10 bg-gradient-to-bl from-cyan-500 via-teal-500 to-emerald-500 rounded-full animate-pulse delay-75'></div> */}
-      </div>
+        </div>
     </div>
   )
 }
