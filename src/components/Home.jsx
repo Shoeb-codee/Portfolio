@@ -61,11 +61,11 @@ const Home = () => {
         </p>
         <div className='flex gap-5 pl-6'>
           <a href="https://github.com/Shoeb-codee" target="_blank" rel="noreferrer" 
-             className='w-[32vw] md:w-[18vw] text-center text-white text-lg md:text-xl font-semibold rounded-full py-3 bg-gradient-to-r from-blue-500 to-cyan-400 hover:opacity-90 active:scale-95 transition shadow-lg shadow-blue-500/20'>
+             className='w-[32vw] md:w-[18vw] text-center text-white text-lg md:text-xl font-semibold rounded-full py-3 hover:marker:bg-gradient-to-r hover:from-teal-600 hover:to-green-400 bg-gradient-to-r from-blue-500 to-cyan-400 hover:opacity-90 active:scale-95 transition shadow-lg shadow-blue-500/20'>
             Github
           </a>
           <a href="mailto:shoebahmad698@gmail.com" target="_blank" rel="noreferrer"
-             className='w-[32vw] md:w-[18vw] text-center text-white text-lg md:text-xl font-semibold rounded-full py-3 bg-gradient-to-r from-cyan-400 to-teal-400 hover:opacity-90 active:scale-95 transition shadow-lg shadow-cyan-500/20'>
+             className='w-[32vw] md:w-[18vw] text-center text-white text-lg md:text-xl font-semibold rounded-full py-3 hover:marker:bg-gradient-to-r hover:from-cyan-600 hover:to-green-500 bg-gradient-to-r from-cyan-400 to-teal-400 hover:opacity-90 active:scale-95 transition shadow-lg shadow-cyan-500/20'>
             Contact Me
           </a>
         </div>

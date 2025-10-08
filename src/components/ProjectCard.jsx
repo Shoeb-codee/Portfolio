@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import hotel from "../assets/hotel.jpeg"
 import ecom from "../assets/ecom.png"
+import wand from "../assets/wand.png"
 
 const ProjectCard = () => {
   const [showScrollButtons, setShowScrollButtons] = useState(false);
@@ -16,7 +16,7 @@ const ProjectCard = () => {
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1517840901100-8179e982acb7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBib29raW5nfGVufDB8fDB8fHww",
+      image: wand,
       title: "WanderLust",
       description: "Discover and book hotels worldwide with seamless checkout.",
       demoUrl: "https://wanderlust-project-s1cn.onrender.com/",
